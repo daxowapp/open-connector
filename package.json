@@ -61,6 +61,13 @@
   },
   "devDependencies": {
     "@electric-sql/pglite": "^0.5.5",
+    "@electric-sql/pglite-age": "0.0.6",
+    "@electric-sql/pglite-pg_hashids": "0.0.6",
+    "@electric-sql/pglite-pg_ivm": "0.0.6",
+    "@electric-sql/pglite-pg_textsearch": "0.0.7",
+    "@electric-sql/pglite-pg_uuidv7": "0.0.6",
+    "@electric-sql/pglite-pgtap": "0.0.6",
+    "@electric-sql/pglite-pgvector": "0.0.6",
     "@electric-sql/pglite-socket": "^0.2.8",
     "@hyrious/configs": "^0.1.6",
     "@types/ali-oss": "^6.23.3",

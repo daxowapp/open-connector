@@ -12,4 +12,11 @@ export const gmailSendScopes: string[] = [gmailSendScope];
 export const gmailLabelScopes: string[] = [gmailLabelsScope];
 export const gmailSettingsBasicScopes: string[] = [gmailSettingsBasicScope];
 
-export const gmailOAuthScopes: string[] = [gmailModifyScope, gmailLabelsScope, gmailSettingsBasicScope];
+// Keep the full catalog scopes declared while allowing a self-hosted runtime to
+// configure a strictly read-only OAuth client through requestedScopes.
+export const gmailOAuthScopes: string[] = [
+  gmailReadonlyScope,
+  gmailModifyScope,
+  gmailLabelsScope,
+  gmailSettingsBasicScope,
+];

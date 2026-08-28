@@ -5,6 +5,7 @@ const gmailSettingsSharingScope = "https://www.googleapis.com/auth/gmail.setting
 const gmailSettingsBasicScope = "https://www.googleapis.com/auth/gmail.settings.basic";
 const gmailLabelsScope = "https://www.googleapis.com/auth/gmail.labels";
 const gmailModifyScope = "https://www.googleapis.com/auth/gmail.modify";
+const gmailReadonlyScope = "https://www.googleapis.com/auth/gmail.readonly";
 
 describe("Gmail provider definition", () => {
   it("does not request the Workspace administrator-only sharing scope for user OAuth", () => {
@@ -13,10 +14,10 @@ describe("Gmail provider definition", () => {
     expect(oauth?.scopes).not.toContain(gmailSettingsSharingScope);
   });
 
-  it("requests only the least scopes that cover the full Gmail action catalog", () => {
+  it("declares the full catalog scopes and permits a read-only requestedScopes configuration", () => {
     const oauth = provider.auth.find((auth) => auth.type === "oauth2");
 
-    expect(oauth?.scopes).toEqual([gmailModifyScope, gmailLabelsScope, gmailSettingsBasicScope]);
+    expect(oauth?.scopes).toEqual([gmailReadonlyScope, gmailModifyScope, gmailLabelsScope, gmailSettingsBasicScope]);
   });
 
   it("uses a user-authorizable scope for forwarding read actions", () => {

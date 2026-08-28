@@ -5,6 +5,7 @@ COPY web ./web
 COPY src ./src
 COPY scripts ./scripts
 COPY examples ./examples
+RUN npm install --global npm@11.19.0
 RUN npm ci --ignore-scripts
 RUN npm run generate:catalog
 RUN npm run build
@@ -21,6 +22,7 @@ COPY scripts/healthcheck.ts ./scripts/healthcheck.ts
 COPY scripts/ensure-generated.ts ./scripts/ensure-generated.ts
 COPY scripts/runtime-data.ts ./scripts/runtime-data.ts
 COPY migrations ./migrations
+RUN npm install --global npm@11.19.0
 COPY --from=build /app/src ./src
 COPY --from=build /app/catalog ./catalog
 COPY --from=build /app/dist ./dist
